@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/154.c5606c40.chunk.css","mappings":"AAAA,kCAGI,cAAc,CACd,eAAgB,CAHhB,iBAAkB,CAClB,gBAGJ","sources":["pages/NotFoundPage/NotFoundPage.module.css"],"sourcesContent":[".notification {\n    padding-left: 30px;\n    padding-top: 30px;\n    font-size:36px;\n    font-weight: 700;\n}"],"names":[],"sourceRoot":""}
