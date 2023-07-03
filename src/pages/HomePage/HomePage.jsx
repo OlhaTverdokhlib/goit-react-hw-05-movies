@@ -4,12 +4,14 @@ import Loader from '../../components/Loader';
 import { Link } from 'react-router-dom';
 import homePageStyles from './HomePage.module.css';
 
+
 const HomePage = () => {
   const { movies, error, isLoadingMovies, fetchTrendingMovies } =
     useFetchTrendingMovies([]);
 
   useEffect(() => {
     fetchTrendingMovies();
+    // eslint-disable-next-line
   }, []);
 
   return (
