@@ -10,7 +10,6 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchTrendingMovies();
-
   }, []);
 
   return (

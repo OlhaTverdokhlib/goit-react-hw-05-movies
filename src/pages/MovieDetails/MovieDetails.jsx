@@ -35,7 +35,7 @@ const MovieDetails = () => {
     };
 
     fetchMovieDetails(movieId);
-    }, [movieId]);
+  }, [movieId]);
 
   const handleGoBack = () => {
     if (location.state) {
@@ -52,7 +52,9 @@ const MovieDetails = () => {
     <div className={movieDetailsStyles.movieInfo}>
       {isLoading && <Loader />}
       {error.length > 0 && (
-        <p className={movieDetailsStyles.errorText}>Upss, Some error occured... {error}</p>
+        <p className={movieDetailsStyles.errorText}>
+          Upss, Some error occured... {error}
+        </p>
       )}
       {movieData && (
         <section>
@@ -71,7 +73,9 @@ const MovieDetails = () => {
               alt="movie moment"
             />
             <div>
-              <h2 className={movieDetailsStyles.titleMovie}>{movieData.title}</h2>
+              <h2 className={movieDetailsStyles.titleMovie}>
+                {movieData.title}
+              </h2>
               <p className={movieDetailsStyles.scoreInfo}>
                 User score:{' '}
                 <span className={movieDetailsStyles.scoreNumber}>
@@ -79,7 +83,9 @@ const MovieDetails = () => {
                 </span>
               </p>
               <h3>Overview</h3>
-              <span className={movieDetailsStyles.overviewText}>{movieData.overview}</span>
+              <span className={movieDetailsStyles.overviewText}>
+                {movieData.overview}
+              </span>
               <h4>Genres</h4>
               <span className={movieDetailsStyles.genresList}>
                 {movieData?.genres &&
@@ -91,7 +97,9 @@ const MovieDetails = () => {
           </div>
 
           <div className={movieDetailsStyles.addInfo}>
-            <h5 className={movieDetailsStyles.addTitle}>Additional information</h5>
+            <h5 className={movieDetailsStyles.addTitle}>
+              Additional information
+            </h5>
             <div className={movieDetailsStyles.addLinks}>
               <Link to="cast" state={{ from: location.state?.from }}>
                 <p>Cast</p>
