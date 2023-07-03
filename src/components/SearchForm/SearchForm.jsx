@@ -6,7 +6,7 @@ import searchFormStyles from "./Search.module.css";
 
 const SearchForm = ({ onSelectName = () => {} }) => {
   const [name, setName] = useState('');
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   const onChange = e => {
     setName(e.target.value);
