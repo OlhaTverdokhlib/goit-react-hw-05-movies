@@ -1,8 +1,8 @@
-import Loader from 'components/Loader/Loader';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'services/api';
 import castPageStyles from './CastPage.module.css';
+import Loader from 'components/Loader/Loader';
 
 const CastPage = () => {
   const { movieId } = useParams();

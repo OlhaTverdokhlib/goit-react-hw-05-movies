@@ -1,53 +1,35 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useSearchParams } from 'react-router-dom';
 
-import searchFormStyles from "./Search.module.css";
+const SearchForm = ({ onSubmit }) => {
+  const [queryValue, setQueryValue] = useState('');
 
-const SearchForm = ({ onSelectName = () => {} }) => {
-  const [name, setName] = useState('');
-  const [, setSearchParams] = useSearchParams();
-
-  const onChange = e => {
-    setName(e.target.value);
-  };
-
-  const onSubmit = e => {
-    e.preventDefault();
-    const searchName = name.trim();
-    onSelectName(searchName);
-    setSearchParams({ query: searchName });
-
-    reset();
-  };
-
-  const reset = () => {
-    setName('');
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    const form = evt.currentTarget;
+    const value = form.elements.query.value;
+    onSubmit(value);
+    setQueryValue('');
+    form.reset();
   };
 
   return (
-    <div className={searchFormStyles.formSection}>
-      <form onSubmit={onSubmit}>
+    <>
+      <form action="" onSubmit={handleSubmit}>
         <input
-          className={searchFormStyles.input}
           type="text"
-          name="name"
-          value={name}
-          placeholder="Enter name to find the movie"
-          onChange={onChange}
-          required
+          name="query"
+          value={queryValue}
+          onChange={evt => setQueryValue(evt.target.value)}
         />
-        <button className={searchFormStyles.button} type="submit">
-          Search
-        </button>
+        <button type="submit">Search</button>
       </form>
-    </div>
+    </>
   );
 };
 
-
 SearchForm.propTypes = {
-  onSelectName: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

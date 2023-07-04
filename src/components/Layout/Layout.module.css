@@ -1,7 +1,9 @@
 .header {
-  display: flex;
+    
+    max-height: 25px;
+  /* display: flex; */
   gap: 30px;
-  padding: 20px 50px;
+  padding: 40px 50px;
   align-items: center;
   font-size: 24px;
   font-weight: bold;
@@ -12,18 +14,17 @@
 .tabPage {
   padding: 15px 30px;
   font-size: 22px;
-  /* background-color: rgb(225, 252, 92); */
+
   color: black;
   border: 3px solid transparent;
   border-radius: 10px 10px 0 0;
   transition: all 0.3s;
   cursor: pointer;
   text-decoration: none;
-}
+} 
 
 .tabPage.active {
-  /* background-color: rgb(153, 169, 245); */
-  /* border: 3px solid rgb(24, 12, 12); */
+
   color: brown;
   text-decoration: none;
-}
+} 

@@ -1,16 +1,16 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Link,
-  Route,
-  Routes,
   useParams,
   useLocation,
   useNavigate,
+  Outlet,
 } from 'react-router-dom';
 import Loader from 'components/Loader';
 import movieDetailsStyles from './MovieDetails.module.css';
 import { getMovieDetails } from 'services/api';
 import arrow from '../../images/arrow.svg';
+import noImg from '../../images/not-image.png';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -45,9 +45,6 @@ const MovieDetails = () => {
     navigate('/');
   };
 
-  const LazyCastPage = lazy(() => import('../Cast/CastPage'));
-  const LazyReviewsPage = lazy(() => import('../ReviewsPage/ReviewsPage'));
-
   return (
     <div className={movieDetailsStyles.movieInfo}>
       {isLoading && <Loader />}
@@ -67,7 +64,7 @@ const MovieDetails = () => {
               src={
                 movieData.poster_path
                   ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}`
-                  : ''
+                  : noImg
               }
               width="300"
               alt="movie moment"
@@ -109,13 +106,8 @@ const MovieDetails = () => {
               </Link>
             </div>
           </div>
-
-          <Suspense>
-            <Routes>
-              <Route path="cast" element={<LazyCastPage />} />
-              <Route path="reviews" element={<LazyReviewsPage />} />
-            </Routes>
-          </Suspense>
+        
+          <Outlet />
         </section>
       )}
     </div>
